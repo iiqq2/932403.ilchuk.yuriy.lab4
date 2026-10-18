@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Анализ выученных слов: страница Юрия Ильчука. Лабораторная работа №4, основы JavaScript, вариант 17." data-i18n="description" data-i18n-attr="content">
+  <title data-i18n="pageTitle">О себе — Юрий Ильчук | Лабораторная №4</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #skills ul { text-align: left; }
+  </style>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1 data-i18n="heading">О себе — Юрий Ильчук</h1>
+    <p data-i18n="intro">Группа 932403. Языковой энтузиаст и переводчик.</p>
+    <p data-i18n="about">Эта страница посвящена переводу, изучению английского и общению между культурами.</p>
+    <div class="portrait">
+      <img src="images/avatar.svg" alt="Иллюстрированный аватар языкового энтузиаста с книгой" width="320" height="320" data-i18n="avatarAlt" data-i18n-attr="alt">
+      <span class="language-badge" lang="en">EN</span>
+    </div>
+    <nav aria-label="Разделы страницы" data-i18n="navigationLabel" data-i18n-attr="aria-label">
+      <ul class="page-nav">
+        <li><a href="#progress" data-i18n="progressTitle">Прогресс в словах</a></li>
+        <li><a href="#languages" data-i18n="languagesTitle">Изучаемые языки</a></li>
+        <li><a href="#phrases" data-i18n="phrasesTitle">Фраза недели</a></li>
+        <li><a href="#skills" data-i18n="skills">Навыки</a></li>
+        <li><a href="#projects" data-i18n="projects">Проекты</a></li>
+        <li><a href="#contact" data-i18n="contact">Обратная связь</a></li>
+      </ul>
+    </nav>
+    <div class="language-switch" role="group" aria-label="Язык и оформление" data-i18n="switchLabel" data-i18n-attr="aria-label">
+      <span data-i18n="languageLabel">Язык:</span>
+      <button type="button" data-language="ru" aria-pressed="true" aria-label="Русский язык и оформление" data-i18n="ruButtonLabel" data-i18n-attr="aria-label">RU</button>
+      <button type="button" data-language="en" aria-pressed="false" aria-label="Английский язык и оформление" data-i18n="enButtonLabel" data-i18n-attr="aria-label">EN</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="progress" aria-labelledby="progress-title">
+      <h2 id="progress-title" data-i18n="progressTitle">Прогресс в словах</h2>
+      <p class="section-note" id="progress-help" data-i18n="progressHelp">Введите количество новых слов за 5–7 дней через запятую, пробел или точку с запятой. В поле уже приведён учебный пример.</p>
+      <form id="progress-form" aria-describedby="progress-help">
+        <p>
+          <label for="word-counts" data-i18n="wordCountsLabel">Новые слова по дням</label>
+          <input id="word-counts" name="wordCounts" type="text" value="8, 55, 10, 72, 34, 60, 5" aria-describedby="progress-help progress-error" required>
+        </p>
+        <p id="progress-error" class="progress-error" data-i18n="progressError" role="alert" hidden>Введите от 5 до 7 целых неотрицательных чисел. Уменьшите значения, если они слишком большие.</p>
+        <button type="submit" data-i18n="analyzeWords">Проанализировать прогресс</button>
+      </form>
+      <div id="progress-results" class="progress-results" aria-live="polite" hidden>
+        <h3 data-i18n="progressResults">Результаты</h3>
+        <dl class="progress-stats">
+          <div><dt data-i18n="totalWords">Всего слов</dt><dd id="total-words">—</dd></div>
+          <div><dt data-i18n="maxWords">Максимум за день</dt><dd id="max-words">—</dd></div>
+          <div><dt data-i18n="averageWords">В среднем за день</dt><dd id="average-words">—</dd></div>
+          <div><dt data-i18n="highDays">Дней с &gt; 50 словами</dt><dd id="high-days">—</dd></div>
+          <div><dt data-i18n="lowDays">Дней с ≤ 10 словами</dt><dd id="low-days">—</dd></div>
+          <div><dt data-i18n="lowPercentage">Доля дней с малым прогрессом</dt><dd id="low-percentage">—</dd></div>
+        </dl>
+        <p><span data-i18n="lowDaysList">Номера дней с малым прогрессом:</span> <span id="low-days-list">—</span></p>
+      </div>
+    </section>
+
+    <section id="languages" aria-labelledby="languages-title">
+      <h2 id="languages-title" data-i18n="languagesTitle">Изучаемые языки</h2>
+      <p class="section-note" data-i18n="languagesNote">Уровни и дополнительные языки — учебные примеры для макета, а не подтверждённые сведения о студенте.</p>
+      <div class="language-cards">
+        <article class="language-card" aria-labelledby="english-title">
+          <span class="flag" role="img" aria-label="Флаг Великобритании" data-i18n="englishFlag" data-i18n-attr="aria-label">🇬🇧</span>
+          <h3 id="english-title" data-i18n="englishName">Английский</h3>
+          <p class="level"><span data-i18n="levelLabel">Уровень:</span> <strong>B1</strong></p>
+          <p data-i18n="englishCardText">Подкасты, перевод и новые выражения из видео.</p>
+          <a href="#phrase-en" data-i18n="goToPhrase">К фразе недели</a>
+        </article>
+        <article class="language-card" aria-labelledby="spanish-title">
+          <span class="flag" role="img" aria-label="Флаг Испании" data-i18n="spanishFlag" data-i18n-attr="aria-label">🇪🇸</span>
+          <h3 id="spanish-title" data-i18n="spanishName">Испанский</h3>
+          <p class="level"><span data-i18n="levelLabel">Уровень:</span> <strong>A1</strong></p>
+          <p data-i18n="spanishCardText">Первые приветствия и повседневные фразы.</p>
+          <a href="#phrase-es" data-i18n="goToPhrase">К фразе недели</a>
+        </article>
+        <article class="language-card" aria-labelledby="french-title">
+          <span class="flag" role="img" aria-label="Флаг Франции" data-i18n="frenchFlag" data-i18n-attr="aria-label">🇫🇷</span>
+          <h3 id="french-title" data-i18n="frenchName">Французский</h3>
+          <p class="level"><span data-i18n="levelLabel">Уровень:</span> <strong>A1</strong></p>
+          <p data-i18n="frenchCardText">Знакомство с произношением и простыми диалогами.</p>
+          <a href="#phrase-fr" data-i18n="goToPhrase">К фразе недели</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="phrases" aria-labelledby="phrases-title">
+      <h2 id="phrases-title" data-i18n="phrasesTitle">Фраза недели</h2>
+      <p class="section-note" data-i18n="phrasesNote">Три короткие фразы: оригинал, перевод, транскрипция и произношение.</p>
+      <div class="phrase-gallery">
+        <article class="phrase-card" aria-labelledby="phrase-en">
+          <div class="phrase-original">
+            <h3 data-i18n="englishName">Английский</h3>
+            <p id="phrase-en" class="phrase-text" lang="en-GB">Thank you!</p>
+          </div>
+          <div class="phrase-details">
+            <p class="phrase-translation" lang="ru" data-translation data-i18n="englishPhraseTranslation">Спасибо!</p>
+            <p class="transcription" lang="en-fonipa">/θæŋk juː/</p>
+            <div class="phrase-actions">
+              <button type="button" data-audio="phrase-en" aria-label="Послушать английскую фразу" data-i18n="audioEnglish" data-i18n-attr="aria-label"><span aria-hidden="true">🔊</span> <span data-i18n="listen">Слушать</span></button>
+              <a href="https://dictionary.cambridge.org/pronunciation/english/thank-you" target="_blank" rel="noopener noreferrer" data-i18n="dictionary">Словарь</a>
+            </div>
+          </div>
+        </article>
+        <article class="phrase-card" aria-labelledby="phrase-es">
+          <div class="phrase-original">
+            <h3 data-i18n="spanishName">Испанский</h3>
+            <p id="phrase-es" class="phrase-text" lang="es-ES">¡Hola!</p>
+          </div>
+          <div class="phrase-details">
+            <p class="phrase-translation" lang="ru" data-translation data-i18n="spanishPhraseTranslation">Привет!</p>
+            <p class="transcription" lang="es-fonipa">/ˈo.la/</p>
+            <div class="phrase-actions">
+              <button type="button" data-audio="phrase-es" aria-label="Послушать испанскую фразу" data-i18n="audioSpanish" data-i18n-attr="aria-label"><span aria-hidden="true">🔊</span> <span data-i18n="listen">Слушать</span></button>
+              <a href="https://dictionary.cambridge.org/dictionary/spanish-english/hola" target="_blank" rel="noopener noreferrer" data-i18n="dictionary">Словарь</a>
+            </div>
+          </div>
+        </article>
+        <article class="phrase-card" aria-labelledby="phrase-fr">
+          <div class="phrase-original">
+            <h3 data-i18n="frenchName">Французский</h3>
+            <p id="phrase-fr" class="phrase-text" lang="fr-FR">Bonjour !</p>
+          </div>
+          <div class="phrase-details">
+            <p class="phrase-translation" lang="ru" data-translation data-i18n="frenchPhraseTranslation">Добрый день!</p>
+            <p class="transcription" lang="fr-fonipa">/bɔ̃.ʒuʁ/</p>
+            <div class="phrase-actions">
+              <button type="button" data-audio="phrase-fr" aria-label="Послушать французскую фразу" data-i18n="audioFrench" data-i18n-attr="aria-label"><span aria-hidden="true">🔊</span> <span data-i18n="listen">Слушать</span></button>
+              <a href="https://www.larousse.fr/dictionnaires/french-english/bonjour/10045" target="_blank" rel="noopener noreferrer" data-i18n="dictionary">Словарь</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <p id="audio-status" class="section-note" role="status" hidden data-i18n="audioUnavailable">Озвучивание недоступно. Послушайте произношение по ссылке «Словарь».</p>
+    </section>
+
+    <section id="skills">
+      <h2 data-i18n="skills">Навыки</h2>
+      <ul>
+        <li><strong data-i18n="translationSkill">Перевод текстов:</strong> <span data-i18n="translationSkillText">передача смысла, тона и культурного контекста оригинала.</span></li>
+        <li><strong data-i18n="englishSkill">Изучение английского:</strong> <span data-i18n="englishSkillText">работа со словарём, грамматикой и произношением.</span></li>
+        <li><strong data-i18n="communicationSkill">Межкультурная коммуникация:</strong> <span data-i18n="communicationSkillText">уважение к традициям и особенностям общения.</span></li>
+        <li><strong data-i18n="editingSkill">Редактирование:</strong> <span data-i18n="editingSkillText">проверка ясности, точности и естественности перевода.</span></li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2 data-i18n="projects">Проекты</h2>
+      <ol>
+        <li data-i18n="podcastProject">Составление переводов подкастов YouTube-канала Ruri Ohama.</li>
+        <li><span data-i18n="translateProject">Улучшение и тренировка AI-перевода в </span><a href="https://translate.yandex.com/" target="_blank" rel="noopener noreferrer">Yandex Translate</a>.</li>
+        <li data-i18n="engcliProject">Разметка для модели проекта EngCLI.</li>
+      </ol>
+      <h3 id="engcli" data-i18n="engcliTitle">О проекте EngCLI</h3>
+      <p data-i18n="engcliDescription">EngCLI — приложение, работающее в терминале. С помощью локальной модели оно определяет уровень вашего английского. Вы передаёте приложению ссылку на ролик на YouTube, а оно создаёт и сохраняет карточки Anki по содержанию видео — только те, которые релевантны вашему уровню английского.</p>
+    </section>
+
+    <aside>
+      <h2 data-i18n="learningTitle">Язык, который изучаю</h2>
+      <p data-i18n="learningText">Английский. Развиваю понимание речи, словарный запас и точность перевода.</p>
+      <p><span data-i18n="learningTools">Для изучения английского использую видео, подкасты и карточки Anki. Подробнее — в </span><a href="#engcli" data-i18n="engcliLink">описании EngCLI</a>.</p>
+    </aside>
+
+    <h2 id="contact" data-i18n="contact">Обратная связь</h2>
+    <form action="#" method="post" style="flex-direction: column;">
+      <p>
+        <label for="name" data-i18n="nameLabel">Имя</label><br>
+        <input id="name" type="text" name="name" placeholder="Ваше имя" required data-i18n="namePlaceholder" data-i18n-attr="placeholder">
+      </p>
+      <p>
+        <label for="email" data-i18n="emailLabel">Электронная почта</label><br>
+        <input id="email" type="email" name="email" placeholder="you@example.com" required>
+      </p>
+      <p>
+        <label for="message" data-i18n="messageLabel">Сообщение</label><br>
+        <textarea id="message" name="message" placeholder="Какой проект хотите обсудить?" rows="5" cols="40" required data-i18n="messagePlaceholder" data-i18n-attr="placeholder"></textarea>
+      </p>
+      <button type="submit" data-i18n="submitLabel">Отправить</button>
+    </form>
+  </main>
+</body>
+</html>
